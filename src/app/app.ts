@@ -60,9 +60,10 @@ export class App {
   sendPutText() {
     this.clearOutput();
     this.http.put(this.url, this.jsonBody, {
-      headers: { 'Content-Type': 'text/plain' }
+      headers: { 'Content-Type': 'text/plain' },
+      responseType: 'text'
     }).subscribe({
-      next: (res) => this.response = JSON.stringify(res, null, 2),
+      next: (res) => this.response = res,
       error: (err) => this.error = JSON.stringify(err, null, 2)
     });
   }
@@ -78,9 +79,10 @@ export class App {
   sendPostText() {
     this.clearOutput();
     this.http.post(this.url, this.jsonBody, {
-      headers: { 'Content-Type': 'text/plain' }
+      headers: { 'Content-Type': 'text/plain' },
+      responseType: 'text'
     }).subscribe({
-      next: (res) => this.response = JSON.stringify(res, null, 2),
+      next: (res) => this.response = res,
       error: (err) => this.error = JSON.stringify(err, null, 2)
     });
   }
